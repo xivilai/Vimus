@@ -1,29 +1,18 @@
 import React from "react";
-import Header from "./components/header";
-import Categories from "./components/categories";
-import Footer from "./components/footer";
+import Header from "./components/Header";
+import Categories from "./components/Categories";
+import Footer from "./components/Footer";
 import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
       <Categories />
 
       <main>
-        <div className="showcase">
-          <h2 className="showcase__title">Showcase title 1</h2>
-
-          <ul className="showcase__list">
-
-          </ul>
-        </div>
-
-        <div id='subscribe'>
-          <h2>Subscribe to our newsletter</h2>
-          <input type='text' placeholder="your email" />
-          <button>Subscribe</button>
-        </div>
+        <Outlet />
       </main>
 
       <Footer />

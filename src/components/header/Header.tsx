@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Header(): ReactElement {
   return (
@@ -15,15 +16,19 @@ export default function Header(): ReactElement {
 
         <ul className="nav-links">
             <li>
-                <a href="/new-releases">New releases</a>
+                <Link to="/movies">Movies</Link>
             </li>
 
             <li>
-                <a href="/coming-soon">Coming soon</a>
+                <Link to="/new-releases">New releases</Link>
             </li>
 
             <li>
-                <a href="/about-us">About Us</a>
+                <Link to="/coming-soon">Coming soon</Link>
+            </li>
+
+            <li>
+                <Link to="/about-us">About Us</Link>
             </li>
         </ul>
       </nav>
