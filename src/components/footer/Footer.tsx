@@ -9,8 +9,14 @@ export default function Footer(): ReactElement {
                 <li>Contacts</li>
                 <li>Services</li>
                 <li>Jobs</li>
-                <li>More cool apps</li>
-                <li>Pretty things</li>
+                <li>Other apps</li>
+                <li>Box office</li>
+                <li>Leases</li>
+                <li>Previews</li>
+                <li>Studios</li>
+                <li>About Us</li>
+                <li>Resources</li>
+                <li>Props</li>
             </ul>
 
             <div className="copyright">
