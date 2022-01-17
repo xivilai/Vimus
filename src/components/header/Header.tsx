@@ -21,9 +21,23 @@ export default function Header(): ReactElement {
         </div>
 
         <ul
-          className={`nav-menu flex flex-col space-x-3 mr-4 ${
-            menuVisible ? "" : "hidden"
-          }`}
+          className={`
+            nav-menu
+            transition-{max-height, padding}
+            duration-500
+            flex
+            p-4
+            flex-col
+            absolute
+            top-0
+            bg-black
+            w-full
+            text-white
+            overflow-hidden 
+            text-2xl
+            space-y-3
+            ${menuVisible ? "max-h-screen" : "max-h-0 py-0"}
+          `}
         >
           <li>
             <Link to="/movies">Movies</Link>
@@ -43,7 +57,7 @@ export default function Header(): ReactElement {
         </ul>
 
         <div
-          className="nav-menu-toggle lg:hidden"
+          className="nav-menu-toggle lg:hidden z-20"
           onClick={() => setMenuVisible(!menuVisible)}
         >
           <div className="space-y-2">
