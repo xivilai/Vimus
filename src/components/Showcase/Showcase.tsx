@@ -2,9 +2,11 @@ import React, { useState, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import './style.css';
 
-interface Props {}
+interface Props {
+  title: string,
+}
 
-export default function Showcase({}: Props): ReactElement {
+export default function Showcase({title}: Props): ReactElement {
   const [movies, setMovies] = useState([
     {
       title: "Crazy kittens",
@@ -89,16 +91,16 @@ export default function Showcase({}: Props): ReactElement {
   ]);
 
   return (
-    <div className="showcase">
-      <h2 className="showcase__title font-semibold text-lg lg:text-xl">
-        New movies
+    <div className="showcase mb-8">
+      <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2">
+        {title}
       </h2>
 
       <ul
         className="showcase__list flex space-x-2 overflow-x-scroll"
       >
-        {movies.map((movie) => (
-          <li key={movie.title} className="w-[40vw] shrink-0">
+        {movies.map((movie, index) => (
+          <li key={index} className="w-[40vw] shrink-0">
             <Link to="/">
               <img src={movie.image} alt="" />
               <span className="block text-center">{movie.title}</span>
