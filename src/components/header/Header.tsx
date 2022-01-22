@@ -61,9 +61,9 @@ export default function Header(): ReactElement {
           onClick={() => setMenuVisible(!menuVisible)}
         >
           <div className="space-y-2">
-            <div className="w-8 h-0.5 bg-gray-600"></div>
-            <div className="w-8 h-0.5 bg-gray-600"></div>
-            <div className="w-8 h-0.5 bg-gray-600"></div>
+            <div className="w-8 h-0.5 bg-white"></div>
+            <div className="w-8 h-0.5 bg-white"></div>
+            <div className="w-8 h-0.5 bg-white"></div>
           </div>
         </div>
       </nav>
