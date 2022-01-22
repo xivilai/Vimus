@@ -1,92 +1,86 @@
 import React, { useState, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import './style.css';
+import "./style.css";
 
 interface Props {
-  title: string,
+  title: string;
 }
 
-export default function Showcase({title}: Props): ReactElement {
+export default function Showcase({ title }: Props): ReactElement {
   const [movies, setMovies] = useState([
     {
       title: "Crazy kittens",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Crazy kittens 2",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
+    },
+
+    {
+      title: "Crazy kittens",
+      image: "https://placekitten.com/300/170",
     },
     {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
-    },
-    {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
+      title: "Crazy kittens 2",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
+    },
+
+    {
+      title: "Crazy kittens",
+      image: "https://placekitten.com/300/170",
     },
     {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
+      title: "Crazy kittens 2",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Soft kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Pretty kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
     },
     {
       title: "Blue kitty",
-      image: "https://placekitten.com/150/80",
+      image: "https://placekitten.com/300/170",
+    },
+    {
+      title: "Soft kitty",
+      image: "https://placekitten.com/300/170",
     },
   ]);
 
@@ -96,11 +90,9 @@ export default function Showcase({title}: Props): ReactElement {
         {title}
       </h2>
 
-      <ul
-        className="showcase__list flex space-x-2 overflow-x-scroll"
-      >
+      <ul className="showcase__list flex space-x-2 overflow-x-scroll">
         {movies.map((movie, index) => (
-          <li key={index} className="w-[40vw] shrink-0">
+          <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
             <Link to="/">
               <img src={movie.image} alt="" />
               <span className="block text-center">{movie.title}</span>
