@@ -7,8 +7,8 @@ export default function Header(): ReactElement {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
-    <header className="h-14">
-      <nav className="flex justify-between items-center pr-4">
+    <header>
+      <nav className="h-14 bg-black/75 flex justify-between items-center pr-4">
         <div id="app-header-logo" className="app-logo w-28">
           <Link to="/">
             <img src={vimusLogo} alt="Vimus logo" />

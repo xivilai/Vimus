@@ -3,7 +3,7 @@ import "./style.css";
 
 export default function Footer(): ReactElement {
   return (
-    <footer className="text-center pb-4">
+    <footer className="bg-black text-gray-400 py-4">
       <ul className="social-links"></ul>
 
       <ul className="other-links font-semibold mb-8 max-w-[800px] mx-auto">
@@ -20,7 +20,7 @@ export default function Footer(): ReactElement {
         <li className="p-3">Privacy Policy</li>
       </ul>
 
-      <div className="copyright">
+      <div className="copyright text-center">
         <p>Copyright Vimus ©{new Date().getFullYear()}</p>
       </div>
     </footer>
