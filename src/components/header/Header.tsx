@@ -27,16 +27,23 @@ export default function Header(): ReactElement {
             duration-500
             flex
             p-4
+            sm:p-0
             flex-col
+            sm:flex-row
             absolute
+            sm:static
             top-0
             bg-black
             w-full
             text-white
             overflow-hidden 
-            text-2xl
+            text-xl
             space-y-3
             ${menuVisible ? "max-h-screen" : "max-h-0 py-0"}
+            sm:max-h-screen
+            sm:space-x-6
+            sm:space-y-0
+            sm:justify-end
           `}
         >
           <li>
@@ -57,7 +64,7 @@ export default function Header(): ReactElement {
         </ul>
 
         <div
-          className="nav-menu-toggle lg:hidden z-20"
+          className="nav-menu-toggle sm:hidden z-20"
           onClick={() => setMenuVisible(!menuVisible)}
         >
           <div className="space-y-2">
