@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Categories />
 
-      <main>
+      <main className="px-3">
         <Outlet />
       </main>
 
