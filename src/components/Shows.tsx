@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { NavLink, Outlet, useSearchParams, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
-let movies = [
+let shows = [
   {
     name: "Will hunting",
     number: 1995,
@@ -34,7 +34,7 @@ let movies = [
   },
 ];
 
-export default function Movies(): ReactElement {
+export default function Shows(): ReactElement {
   const [searchParams, setSearchParams] = useSearchParams();
 
   return (
@@ -52,12 +52,12 @@ export default function Movies(): ReactElement {
         }}
       />
 
-      {movies.filter((movie) => { 
+      {shows.filter((show) => { 
           let filter = searchParams.get("filter");
           if (!filter) return true;
-          let name = movie.name.toLowerCase();
+          let name = show.name.toLowerCase();
           return name.toLowerCase().includes(filter.toLowerCase());
-       }).map((movie, i) => (
+       }).map((show, i) => (
         <NavLink
           style={({ isActive }) => {
             return {
@@ -66,10 +66,10 @@ export default function Movies(): ReactElement {
               color: isActive ? "red" : "",
             };
           }}
-          to={`/movies/${movie.number}`}
+          to={`/shows/${show.number}`}
           key={i}
         >
-          {movie.name}
+          {show.name}
         </NavLink>
       ))}
 

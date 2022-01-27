@@ -1,8 +1,8 @@
 import React from "react";
 import App from "../App";
 import Home from "../pages/home";
-import Movie from "../components/Movie";
-import Movies from "../components/Movies";
+import Show from "../components/Show";
+import Shows from "../components/Shows";
 import Genre from "../components/Genre";
 import { Route, Routes as RouterRoutes } from "react-router-dom";
 
@@ -12,9 +12,8 @@ export default function Routes() {
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
 
-        <Route path="movies" element={<Movies />}>
-          <Route index element={<p>Select an movie</p>} />
-          <Route path=":movieId" element={<Movie />} />
+        <Route path="shows" element={<Shows />}>
+          <Route path=":showId" element={<Show />} />
         </Route>
 
         <Route path="genre/:genre" element={<Genre />} />

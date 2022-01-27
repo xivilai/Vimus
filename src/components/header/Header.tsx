@@ -16,7 +16,7 @@ export default function Header(): ReactElement {
         </div>
 
         <div className="search hidden">
-          <input type="text" placeholder="Search movies" />
+          <input type="text" placeholder="Search Vimus" />
           <button>🔍</button>
         </div>
 
@@ -47,7 +47,7 @@ export default function Header(): ReactElement {
           `}
         >
           <li>
-            <Link to="/movies">Movies</Link>
+            <Link to="/shows">Shows</Link>
           </li>
 
           <li>

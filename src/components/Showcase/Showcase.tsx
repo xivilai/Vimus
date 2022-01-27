@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function Showcase({ title }: Props): ReactElement {
-  const [movies, setMovies] = useState([
+  const [shows, setShows] = useState([
     {
       title: "Crazy kittens",
       image: "https://placekitten.com/300/170",
@@ -91,11 +91,11 @@ export default function Showcase({ title }: Props): ReactElement {
       </h2>
 
       <ul className="showcase__list flex space-x-2 overflow-x-scroll">
-        {movies.map((movie, index) => (
+        {shows.map((show, index) => (
           <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
             <Link to="/">
-              <img src={movie.image} alt="" />
-              <span className="block text-center">{movie.title}</span>
+              <img src={show.image} alt="" />
+              <span className="block text-center">{show.title}</span>
             </Link>
           </li>
         ))}
