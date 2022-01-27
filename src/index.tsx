@@ -1,34 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import Home from './pages/home';
 import reportWebVitals from "./reportWebVitals";
-import Movie from "./components/Movie";
-import Movies from "./components/Movies";
-import Genre from "./components/Genre";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Router from "./routing/Router";
+import Routes from "./routing/Routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-
-          <Route path="movies" element={<Movies />}>
-            <Route index element={<p>Select an movie</p>} />
-            <Route path=":movieId" element={<Movie />} />
-          </Route>
-
-          <Route path='genre/:genre' element={<Genre />} />
-
-          <Route path="new-releases" element={<div>new releases!</div>} />
-          <Route path="coming-soon" element={<div>coming soon!</div>} />
-          <Route path="*" element={<div>Not found! Go back!</div>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <Routes />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
