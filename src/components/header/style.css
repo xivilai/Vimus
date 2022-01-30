@@ -1,0 +1,19 @@
+#searchbar {
+    width: 100%;
+}
+
+.searchbar-container {
+    z-index: -30;
+}
+
+#searchbar-state:checked ~ .searchbar-container {
+    z-index: 30;
+}
+
+#searchbar-state:checked ~ .searchbar-container #searchbar {
+    max-width: 100%;
+}
+
+#searchbar-state:checked ~ #searchbar #close-searchbar {
+    display: block;
+}
