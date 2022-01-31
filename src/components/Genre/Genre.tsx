@@ -16,5 +16,5 @@ export default function Genre({}: Props) {
     genre[0].toUpperCase() + genre?.slice(1, genre.length)
   } movies`;
 
-  return <Showcase title={showcaseTitle} />;
+  return <Showcase title={showcaseTitle} keyword={genre} />;
 }

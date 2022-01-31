@@ -1,88 +1,37 @@
 import React, { useState, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import axios from "axios";
+
+import { IShow } from "../Show";
 
 interface Props {
   title: string;
+  keyword: string;
 }
 
-export default function Showcase({ title }: Props): ReactElement {
-  const [shows, setShows] = useState([
-    {
-      title: "Crazy kittens",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Crazy kittens 2",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
+export default function Showcase({ title, keyword }: Props): ReactElement {
+  const [shows, setShows] = useState<Array<IShow>>([]);
 
-    {
-      title: "Crazy kittens",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Crazy kittens 2",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
+  React.useEffect(() => {
+    async function getShows() {
+      try {
+        const response = await axios.get(
+          `https://imdb-api.com/en/API/SearchTitle/k_k2rf07hj/${keyword}`
+        );
 
-    {
-      title: "Crazy kittens",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Crazy kittens 2",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Pretty kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Blue kitty",
-      image: "https://placekitten.com/300/170",
-    },
-    {
-      title: "Soft kitty",
-      image: "https://placekitten.com/300/170",
-    },
-  ]);
+        return response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getShows().then((shows: Array<IShow>) => {
+      shows = shows.map((show) => ({ ...show, image: getPosterSize(show.image) }));
+      console.log(shows);
+      setShows(shows);
+    });
+  }, [keyword]);
 
   return (
     <div className="showcase mb-8">
@@ -102,4 +51,8 @@ export default function Showcase({ title }: Props): ReactElement {
       </ul>
     </div>
   );
+}
+
+function getPosterSize(poster: string) {
+  return poster.replace("original", "300x170");
 }
