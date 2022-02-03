@@ -42,7 +42,7 @@ export default function Showcase({ title, keyword }: Props): ReactElement {
       <ul className="showcase__list flex space-x-2 overflow-x-scroll">
         {shows.map((show, index) => (
           <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
-            <Link to="/">
+            <Link to={`/show/${show.id}`}>
               <img src={show.image} alt="" />
               <span className="block text-center">{show.title}</span>
             </Link>

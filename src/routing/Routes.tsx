@@ -12,9 +12,7 @@ export default function Routes() {
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
 
-        <Route path="shows" element={<Shows />}>
-          <Route path=":showId" element={<Show />} />
-        </Route>
+        <Route path="show/:showId" element={<Show />} />
 
         <Route path="genre/:genre" element={<Genre />} />
 
