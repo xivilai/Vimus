@@ -11,7 +11,7 @@ export interface IShow {
   genres?: Array<string>;
   imDbRating?: Number;
   runtimeStr?: string;
-  description?: string;
+  plot?: string;
 }
 
 export default function Show(): ReactElement {
@@ -49,7 +49,7 @@ export default function Show(): ReactElement {
       ></div>
       <h1 className="show__title text-2xl font-bold">{show?.title}</h1>
 
-      <div className="show__meta meta text-[#a3a3a3]">
+      <div className="show__meta meta text-[#a3a3a3] mb-4">
         <span className="meta__genre">{show?.genres}</span>
 
         <span className="meta__spacer mx-1">|</span>
@@ -77,6 +77,10 @@ export default function Show(): ReactElement {
 
         <span className="meta__duration">{show?.runtimeStr}</span>
       </div>
+
+      <p className="show__description">
+        {show?.plot}
+      </p>
     </section>
   );
 }
