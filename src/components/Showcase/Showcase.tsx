@@ -28,7 +28,6 @@ export default function Showcase({ title, keyword }: Props): ReactElement {
 
     getShows().then((shows: Array<IShow>) => {
       shows = shows.map((show) => ({ ...show, image: getPosterSize(show.image) }));
-      console.log(shows);
       setShows(shows);
     });
   }, [keyword]);
