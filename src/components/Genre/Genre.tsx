@@ -1,12 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Showcase from "../Showcase";
+import useShows from '../../hooks/useShows';
 
-type Props = {};
-
-export default function Genre({}: Props) {
+export default function Genre() {
   const params = useParams();
-  const genre = params.genre;
+  const genre = params.genre || '';
+
+  const shows = useShows(genre);
+
 
   if (genre === "" || typeof genre === "undefined") {
     return <p>Invalid category</p>;
@@ -16,5 +18,5 @@ export default function Genre({}: Props) {
     genre[0].toUpperCase() + genre?.slice(1, genre.length)
   } movies`;
 
-  return <Showcase title={showcaseTitle} keyword={genre} />;
+  return <Showcase title={showcaseTitle} shows={shows} />;
 }

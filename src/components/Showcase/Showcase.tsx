@@ -1,37 +1,15 @@
-import React, { useState, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import axios from "axios";
 
 import { IShow } from "../Show";
 
 interface Props {
+  shows: Array<IShow>;
   title: string;
-  keyword: string;
 }
 
-export default function Showcase({ title, keyword }: Props): ReactElement {
-  const [shows, setShows] = useState<Array<IShow>>([]);
-
-  React.useEffect(() => {
-    async function getShows() {
-      try {
-        const response = await axios.get(
-          `https://imdb-api.com/en/API/SearchTitle/k_k2rf07hj/${keyword}`
-        );
-
-        return response.data.results;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getShows().then((shows: Array<IShow>) => {
-      shows = shows.map((show) => ({ ...show, image: getPosterSize(show.image) }));
-      setShows(shows);
-    });
-  }, [keyword]);
-
+export default function Showcase({ shows, title }: Props): ReactElement {
   return (
     <div className="showcase mb-8">
       <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2">
@@ -50,8 +28,4 @@ export default function Showcase({ title, keyword }: Props): ReactElement {
       </ul>
     </div>
   );
-}
-
-function getPosterSize(poster: string) {
-  return poster.replace("original", "300x170");
 }
