@@ -10,7 +10,7 @@ export default function Header(): ReactElement {
 
   return (
     <header className="relative">
-      <nav className="h-14 bg-black/75 flex justify-between items-center pr-4">
+      <nav className="h-14 bg-black/75 flex justify-between items-center">
         <div id="app-header-logo" className="app-logo w-28">
           <Link to="/">
             <img src={vimusLogo} alt="Vimus logo" />
@@ -133,7 +133,7 @@ export default function Header(): ReactElement {
           className="nav-menu-toggle sm:hidden z-20"
           onClick={() => setMenuVisible(!menuVisible)}
         >
-          <div className="space-y-2">
+          <div className="space-y-2 mr-4">
             <div className="w-8 h-0.5 bg-white"></div>
             <div className="w-8 h-0.5 bg-white"></div>
             <div className="w-8 h-0.5 bg-white"></div>
