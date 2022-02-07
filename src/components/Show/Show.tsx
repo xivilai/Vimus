@@ -49,7 +49,7 @@ export default function Show(): ReactElement {
       <section className="show mb-8">
         <div
           className="show__backdrop -ml-3 -mr-3 bg-cover bg-center pb-[55%] mb-4"
-          style={{ backgroundImage: `url(${show?.backdrop})` }}
+          style={{ backgroundImage: `url(${show?.backdrop || show?.image})` }}
         ></div>
         <h1 className="show__title text-2xl font-bold">{show?.title}</h1>
         <div className="show__meta meta text-[#a3a3a3] mb-4">
