@@ -17,7 +17,7 @@ export default function Header(): ReactElement {
           </Link>
         </div>
 
-        <div className="search ml-auto mr-2">
+        <div className="search ml-auto mr-2 sm:order-2 sm:ml-2">
           <label
             id="open-searchbar"
             htmlFor="searchbar-state"
