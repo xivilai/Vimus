@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import Showcase from '../Showcase';
+import Showcase from "../Showcase";
 
 export interface IShow {
   id: string;
@@ -57,12 +57,12 @@ export default function Show(): ReactElement {
           <span className="meta__spacer mx-1">|</span>
           <span className="meta__year">{show?.year}</span>
           <span className="meta__spacer mx-1">|</span>
-          <span className="meta__rating">
+          <span className="meta__rating ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              className="text-[#fdcc1b] mr-1"
+              className="text-[#fdcc1b] mr-1 inline-block align-bottom"
               viewBox="0 0 24 24"
               fill="currentColor"
               role="presentation"
@@ -71,12 +71,15 @@ export default function Show(): ReactElement {
             </svg>
             {show?.imDbRating}/10
           </span>
-          <span className="meta__spacer mx-1">|</span>
-          <span className="meta__duration">{show?.runtimeStr}</span>
+
+          {show?.runtimeStr && (
+            <>
+              <span className="meta__spacer mx-1">|</span>
+              <span className="meta__duration">{show.runtimeStr}</span>
+            </>
+          )}
         </div>
-        <p className="show__description">
-          {show?.plot}
-        </p>
+        <p className="show__description">{show?.plot}</p>
       </section>
 
       {show?.similars?.length && (
