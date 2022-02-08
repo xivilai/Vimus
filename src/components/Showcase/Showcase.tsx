@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -10,13 +10,41 @@ interface Props {
 }
 
 export default function Showcase({ shows, title }: Props): ReactElement {
+  const showcaseListRef = useRef<HTMLUListElement>(null);
+
+  const scrollOffset = 900;
+
+  const scrollRight = () => {
+    if (showcaseListRef.current) {
+      showcaseListRef.current.scrollLeft += scrollOffset;
+    }
+  };
+
+  const scrollLeft = () => {
+    if (showcaseListRef.current) {
+      showcaseListRef.current.scrollLeft -= scrollOffset;
+    }
+  };
+
   return (
-    <div className="showcase mb-8">
+    <div className="showcase relative mb-8">
       <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2">
         {title}
       </h2>
 
-      <ul className="showcase__list flex space-x-2 overflow-x-scroll">
+      <button className="absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full" onClick={scrollLeft}>
+        <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="currentColor"
+            d="M11.56 5.56L10.5 4.5 6 9l4.5 4.5 1.06-1.06L8.12 9z"
+          ></path>
+        </svg>
+      </button>
+
+      <ul
+        ref={showcaseListRef}
+        className="showcase__list flex space-x-2 overflow-x-scroll scroll-smooth"
+      >
         {shows.map((show, index) => (
           <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
             <Link to={`/show/${show.id}`}>
@@ -26,6 +54,16 @@ export default function Showcase({ shows, title }: Props): ReactElement {
           </li>
         ))}
       </ul>
+
+      <button className="absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full"
+      onClick={scrollRight}>
+        <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="currentColor"
+            d="M11.56 5.56L10.5 4.5 6 9l4.5 4.5 1.06-1.06L8.12 9z"
+          ></path>
+        </svg>
+      </button>
     </div>
   );
 }
