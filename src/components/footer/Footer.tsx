@@ -7,17 +7,39 @@ export default function Footer(): ReactElement {
       <ul className="social-links"></ul>
 
       <ul className="other-links font-semibold mb-8 max-w-[800px] mx-auto">
-        <li className="p-3">Contacts</li>
-        <li className="p-3">Services</li>
-        <li className="p-3">Jobs</li>
-        <li className="p-3">Other apps</li>
-        <li className="p-3">Box office</li>
-        <li className="p-3">Site index</li>
-        <li className="p-3">Previews</li>
-        <li className="p-3">Press room</li>
-        <li className="p-3">About Us</li>
-        <li className="p-3">Resources</li>
-        <li className="p-3">Privacy Policy</li>
+        <li className="p-3">
+          <a href="#0">Contacts</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Services</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Jobs</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Other apps</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Box office</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Site index</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Previews</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Press room</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">About Us</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Resources</a>
+        </li>
+        <li className="p-3">
+          <a href="#0">Privacy Policy</a>
+        </li>
       </ul>
 
       <div className="copyright text-center">
