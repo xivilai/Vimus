@@ -7,7 +7,7 @@ export default function Genre() {
   const params = useParams();
   const genre = params.genre || '';
 
-  const shows = useShows(genre);
+  const shows = useShows({ genre });
 
 
   if (genre === "" || typeof genre === "undefined") {

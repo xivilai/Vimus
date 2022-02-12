@@ -3,7 +3,7 @@ import Showcase from "../components/Showcase";
 import useShows from "../hooks/useShows";
 
 export default function Home(): ReactElement {
-  const actionShows = useShows('action');
+  const actionShows = useShows({ genre: 'action'});
   // const comedyShows = useShows('comedy');
 
   return (
