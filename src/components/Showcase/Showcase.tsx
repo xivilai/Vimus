@@ -28,7 +28,7 @@ export default function Showcase({ shows, title }: Props): ReactElement {
 
   return (
     <div className="showcase relative mb-8">
-      <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2">
+      <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2 capitalize">
         {title}
       </h2>
 
