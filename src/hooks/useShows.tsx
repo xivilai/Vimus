@@ -2,14 +2,14 @@ import React from 'react';
 import axios from "axios";
 import { IShow } from '../components/Show';
 
-export default function useShows(keyword : string) {
+export default function useShows(genre : string) {
     const [shows, setShows] = React.useState<Array<IShow>>([]);
 
   React.useEffect(() => {
     async function getShows() {
       try {
         const response = await axios.get(
-          `https://imdb-api.com/en/API/SearchTitle/k_k2rf07hj/${keyword}`
+          `https://imdb-api.com/API/AdvancedSearch/k_k2rf07hj/?genres=${genre}`
         );
 
         return response.data.results;
@@ -22,7 +22,7 @@ export default function useShows(keyword : string) {
       shows = shows.map((show) => ({ ...show, image: getPosterSize(show.image) }));
       setShows(shows);
     });
-  }, [keyword]);
+  }, [genre]);
 
   return shows;
 }

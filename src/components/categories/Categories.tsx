@@ -29,7 +29,7 @@ export default function Categories(): ReactElement {
     },
     {
       label: "Science Fiction Films",
-      to: "/genre/science-fiction",
+      to: "/genre/sci-fi",
     },
   ];
 
