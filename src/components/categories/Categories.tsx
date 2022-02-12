@@ -24,10 +24,6 @@ export default function Categories(): ReactElement {
       to: "/genre/comedy",
     },
     {
-      label: "Black Comedy",
-      to: "/genre/black-comedy",
-    },
-    {
       label: "Science Fiction Films",
       to: "/genre/sci-fi",
     },
