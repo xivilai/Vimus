@@ -24,8 +24,20 @@ export default function Categories(): ReactElement {
       to: "/genre/comedy",
     },
     {
-      label: "Science Fiction Films",
+      label: "Science Fiction",
       to: "/genre/sci-fi",
+    },
+    {
+      label: "Documentary",
+      to: "/genre/documentary",
+    },
+    {
+      label: "Drama",
+      to: "/genre/drama",
+    },
+    {
+      label: "History",
+      to: "/genre/history",
     },
   ];
 
