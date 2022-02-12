@@ -1,4 +1,6 @@
 import React, { ReactElement } from "react";
+import { Link } from "react-router-dom";
+
 import "./style.css";
 
 export default function Footer(): ReactElement {
@@ -7,39 +9,11 @@ export default function Footer(): ReactElement {
       <ul className="social-links"></ul>
 
       <ul className="other-links font-semibold mb-8 max-w-[800px] mx-auto">
-        <li className="p-3">
-          <a href="#0">Contacts</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Services</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Jobs</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Other apps</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Box office</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Site index</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Previews</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Press room</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">About Us</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Resources</a>
-        </li>
-        <li className="p-3">
-          <a href="#0">Privacy Policy</a>
-        </li>
+        {links.map((lnk, i) => (
+          <Link to={lnk.to} className="p-3">
+            {lnk.label}
+          </Link>
+        ))}
       </ul>
 
       <div className="copyright text-center">
@@ -48,3 +22,17 @@ export default function Footer(): ReactElement {
     </footer>
   );
 }
+
+const links = [
+  { label: "Contacts", to: "/contacts" },
+  { label: "Services", to: "/services" },
+  { label: "Jobs", to: "/jobs" },
+  { label: "Other apps", to: "/other-apps" },
+  { label: "Box office", to: "/box-office" },
+  { label: "Site index", to: "/site-index" },
+  { label: "Previews", to: "/previews" },
+  { label: "Press room", to: "/press-room" },
+  { label: "About Us", to: "/about-us" },
+  { label: "Resources", to: "/resources" },
+  { label: "Privacy Policy", to: "/privacy-policy" },
+];
