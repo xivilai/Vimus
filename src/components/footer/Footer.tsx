@@ -10,7 +10,7 @@ export default function Footer(): ReactElement {
 
       <ul className="other-links font-semibold mb-8 max-w-[800px] mx-auto">
         {links.map((lnk, i) => (
-          <Link to={lnk.to} className="p-3">
+          <Link to={lnk.to} key={i} className="p-3">
             {lnk.label}
           </Link>
         ))}
