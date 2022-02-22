@@ -15,7 +15,7 @@ export default function useShows(props: useShowsProps) {
       try {
         const response = await axios.get(getAPIURL(props));
 
-        if (response.data.errorMessage !== "") {
+        if (response.data.errorMessage !== null) {
           alert(response.data.errorMessage);
           return [];
         }
