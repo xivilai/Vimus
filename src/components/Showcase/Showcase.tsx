@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef } from "react";
+import React, { ReactElement, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -11,6 +11,7 @@ interface Props {
 
 export default function Showcase({ shows, title }: Props): ReactElement {
   const showcaseListRef = useRef<HTMLUListElement>(null);
+  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
 
   const scrollOffset = 900;
 
@@ -32,7 +33,10 @@ export default function Showcase({ shows, title }: Props): ReactElement {
         {title}
       </h2>
 
-      <button className="absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full" onClick={scrollLeft}>
+      <button
+        className={`absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full ${!isImagesLoaded && "hidden" }`}
+        onClick={scrollLeft}
+      >
         <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="currentColor"
@@ -48,15 +52,21 @@ export default function Showcase({ shows, title }: Props): ReactElement {
         {shows.map((show, index) => (
           <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
             <Link to={`/show/${show.id}`}>
-              <img src={show.image} alt="" />
+              <img
+                src={show.image}
+                alt=""
+                onLoad={(evt) => setIsImagesLoaded(true)}
+              />
               <span className="block text-center">{show.title}</span>
             </Link>
           </li>
         ))}
       </ul>
 
-      <button className="absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full"
-      onClick={scrollRight}>
+      <button
+        className={`absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full ${!isImagesLoaded && "hidden" }`}
+        onClick={scrollRight}
+      >
         <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
           <path
             fill="currentColor"
