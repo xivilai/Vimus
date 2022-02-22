@@ -113,7 +113,7 @@ export default function Header(): ReactElement {
           `}
         >
           <li>
-            <Link to="/shows">Shows</Link>
+            <Link to="/top-shows">Top shows</Link>
           </li>
 
           <li>

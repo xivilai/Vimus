@@ -4,7 +4,7 @@ import { IShow } from "../components/Show";
 
 interface useShowsProps {
   genre?: string;
-  newReleases?: boolean;
+  type?: string;
 }
 
 export default function useShows(props: useShowsProps) {
@@ -15,7 +15,7 @@ export default function useShows(props: useShowsProps) {
       try {
         const response = await axios.get(getAPIURL(props));
 
-        if (response.data.errorMessage !== null) {
+        if (response.data.errorMessage !== null && response.data.errorMessage !== "") {
           alert(response.data.errorMessage);
           return [];
         }
@@ -42,8 +42,10 @@ function getAPIURL(config: useShowsProps) {
   const genreURL = `https://imdb-api.com/API/AdvancedSearch/k_k2rf07hj/?genres=${config.genre}`;
   if (config.genre) {
     return genreURL;
-  } else if (config.newReleases) {
+  } else if (config.type === 'new releases') {
     return "https://imdb-api.com/en/API/InTheaters/k_k2rf07hj";
+  } else if (config.type === 'top shows') {
+    return "https://imdb-api.com/en/API/MostPopularMovies/k_k2rf07hj";
   }
 
   return genreURL;

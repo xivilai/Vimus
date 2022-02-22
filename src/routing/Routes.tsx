@@ -5,7 +5,8 @@ import App from "../App";
 import Home from "../pages/home";
 import Show from "../components/Show";
 import Genre from "../components/Genre";
-import NewReleases from '../pages/newReleases';
+import NewReleases from "../pages/newReleases";
+import TopShows from "../pages/topShows";
 
 export default function Routes() {
   return (
@@ -19,6 +20,7 @@ export default function Routes() {
 
         <Route path="new-releases" element={<NewReleases />} />
         <Route path="coming-soon" element={<div>coming soon!</div>} />
+        <Route path="top-shows" element={<TopShows />} />
         <Route path="*" element={<div>Not found! Go back!</div>} />
       </Route>
     </RouterRoutes>
