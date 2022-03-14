@@ -31,7 +31,7 @@ export default function Search() {
   }
 
   return (
-    <div className="search ml-auto mr-2 lg:ml-auto lg:mr-6 sm:order-2 lg:order-none lg:w-[350px] lg:shrink-0 sm:ml-2">
+    <div className="search ml-auto mr-2 lg:ml-auto lg:mr-8 sm:order-2 lg:order-none lg:w-[350px] lg:shrink-0 lg:grow lg:ml-4 sm:ml-2">
       <button
         className="open-searchbar p-4 block lg:hidden"
         onClick={() => {
