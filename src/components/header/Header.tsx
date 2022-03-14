@@ -29,8 +29,8 @@ export default function Header(): ReactElement {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
-    <header className="relative">
-      <nav className="h-14 bg-black/75 flex justify-between items-center">
+    <header className="relative bg-black/75">
+      <nav className="h-14 max-w-screen-xl mx-auto flex justify-between items-center">
         <AppLogo id="app-header-logo" className="w-28" />
 
         <Search />

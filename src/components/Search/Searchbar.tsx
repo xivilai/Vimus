@@ -25,7 +25,7 @@ export default function Searchbar({
         id="searchbar"
         className={`${
           open ? "max-w-full" : "max-w-0"
-        } w-full lg:max-w-[100%] transition-[max-width] duration-300 top-0 left-0  bg-[#2c2c2c] relative overflow-hidden`}
+        } w-full lg:max-w-[100%] hover:outline outline-1 outline-[#366aaa] transition-[max-width] duration-300 top-0 left-0  bg-[#2c2c2c] relative overflow-hidden`}
       >
         <form id="nav-search-form" method="get" action="/find" className="flex">
           <input

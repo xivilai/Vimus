@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Categories />
 
-      <main className="px-3">
+      <main className="px-3 max-w-screen-xl mx-auto">
         <Outlet />
 
         <Subscribe />
