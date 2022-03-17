@@ -10,6 +10,7 @@ export default function HeaderLinksList({children, menuVisible}: Props) {
     <ul
       className={`
             nav-menu
+            z-10
             transition-{max-height, padding}
             duration-500
             flex

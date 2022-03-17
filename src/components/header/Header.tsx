@@ -45,7 +45,7 @@ export default function Header(): ReactElement {
 
         <button
           onClick={() => setMenuVisible(!menuVisible)}
-          className="nav-menu-toggle sm:hidden z-20 mr-4"
+          className="nav-menu-toggle sm:hidden z-10 mr-4"
         >
           <BurgerIcon />
         </button>
