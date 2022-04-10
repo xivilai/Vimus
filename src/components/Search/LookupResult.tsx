@@ -14,7 +14,7 @@ export default function LookupResult({
   topActors,
 }: Props) {
   return (
-    <li className="m-4 flex gap-2">
+    <li className="p-4 flex gap-2 hover:bg-gray-700 transition-colors relative after:block after:border-t after:w-full after:absolute after:bottom-0 after:left-0 after:border-gray-400">
       <img src={poster} alt={title} className="w-[50px]" />
 
       <div>
