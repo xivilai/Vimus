@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export interface ISearchResult {
+    id: string,
     image: string;
     title: string;
     description: string;

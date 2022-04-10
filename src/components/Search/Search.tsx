@@ -69,7 +69,7 @@ export default function Search() {
               onChange={handleQueryChange}
               ref={searchInputRef}
               placeholder="Search Vimus"
-              className="w-full h-full p-4 lg:p-3 bg-inherit outline-none text-white"
+              className="w-full h-full p-4 lg:p-3  bg-inherit outline-none text-white"
             />
           </form>
 
@@ -87,6 +87,7 @@ export default function Search() {
           <LookupOverlay>
             {shows?.map((show) => (
               <LookupResult
+                key={show.id}
                 poster={show.image}
                 title={show.title}
                 year={show.description.replace(/[^0-9]/g, "")}
