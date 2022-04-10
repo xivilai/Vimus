@@ -15,7 +15,7 @@ interface IStar {
 
 export async function search(query : string) {
     try {
-        const url = `https://imdb-api.com/API/AdvancedSearch/k_k2rf07hj/?title=${query}`;
+        const url = `https://imdb-api.com/API/AdvancedSearch/k_k2rf07hj/?title=${query}&count=10`;
         const response = await axios.get(url);
         return response.data.results;
     } catch (error) {
