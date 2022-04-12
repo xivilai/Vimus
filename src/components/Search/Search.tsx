@@ -25,7 +25,9 @@ export default function Search() {
     }
 
     queryTimeoutRef.current = setTimeout(() => {
-      performSearch(query);
+      if (query !== "") {
+        performSearch(query);
+      }
     }, 500);
   }
 
@@ -83,7 +85,9 @@ export default function Search() {
           >
             {isMobileDevice ? <CloseIcon /> : <SearchIcon />}
           </button>
+        </div>
 
+        {(query !== "" && isSearchbarOpen) && (
           <LookupOverlay>
             {shows?.map((show) => (
               <LookupResult
@@ -95,7 +99,7 @@ export default function Search() {
               />
             ))}
           </LookupOverlay>
-        </div>
+        )}
       </div>
     </div>
   );
