@@ -8,13 +8,13 @@ import LookupResult from "./LookupResult";
 import { search, ISearchResult } from "../../controllers/search";
 
 export default function Search() {
+  const windowSize = useWindowSize();
+  const [isMobileDevice, setIsMobileDevice] = useState();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
   const queryTimeoutRef = useRef<NodeJS.Timeout>();
   const [query, setQuery] = useState("");
   const [shows, setShows] = useState<Array<ISearchResult>>([]);
-  const windowSize = useWindowSize();
-  const isMobileDevice = windowSize.width && windowSize.width < 1024;
 
   function handleQueryChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const query = evt.target.value;
@@ -35,6 +35,10 @@ export default function Search() {
     console.log("searching ", query);
     search(query).then((_shows) => setShows(_shows));
   }
+
+  React.useEffect(() => {
+    setIsMobileDevice(windowSize.width && windowSize.width < 1024);
+  }, [windowSize.width])
 
   return (
     <div className="search ml-auto mr-2 lg:ml-auto lg:mr-8 sm:order-2 lg:order-none lg:w-[350px] lg:shrink-0 lg:grow lg:ml-4 sm:ml-2">
