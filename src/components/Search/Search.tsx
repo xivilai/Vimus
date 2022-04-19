@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useQuery } from "react-query";
 
 import SearchIcon from "../icons/Search";
 import CloseIcon from "../icons/Close";
@@ -6,6 +7,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import LookupOverlay from "./LookupOverlay";
 import LookupResult from "./LookupResult";
 import { search, ISearchResult } from "../../controllers/search";
+import '../../assets/animations/flashing-dots.css';
 
 export default function Search() {
   const windowSize = useWindowSize();
@@ -14,7 +16,11 @@ export default function Search() {
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
   const queryTimeoutRef = useRef<NodeJS.Timeout>();
   const [query, setQuery] = useState("");
-  const [shows, setShows] = useState<Array<ISearchResult>>([]);
+  const { isLoading, refetch, error, data } = useQuery<Array<ISearchResult>>(
+    query,
+    () => search(query),
+    { enabled: false }
+  );
 
   function handleQueryChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const query = evt.target.value;
@@ -33,12 +39,12 @@ export default function Search() {
 
   function performSearch(query: string) {
     console.log("searching ", query);
-    search(query).then((_shows) => setShows(_shows));
+    refetch();
   }
 
   React.useEffect(() => {
     setIsMobileDevice(windowSize.width && windowSize.width < 1024);
-  }, [windowSize.width])
+  }, [windowSize.width]);
 
   return (
     <div className="search ml-auto mr-2 lg:ml-auto lg:mr-8 sm:order-2 lg:order-none lg:w-[350px] lg:shrink-0 lg:grow lg:ml-4 sm:ml-2">
@@ -91,9 +97,14 @@ export default function Search() {
           </button>
         </div>
 
-        {(query !== "" && isSearchbarOpen) && (
+        {query !== "" && isSearchbarOpen && (
           <LookupOverlay>
-            {shows?.map((show) => (
+            {isLoading && <div className="flex mt-20 w-full items-center justify-center">
+                <div className="dot-flashing"></div>
+              </div>}
+            {error && <div className='flex mt-20 justify-center'>Error: {error}</div>}
+
+            {data?.map((show) => (
               <LookupResult
                 key={show.id}
                 poster={show.image}

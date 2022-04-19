@@ -5,20 +5,25 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import Subscribe from "./components/Subscribe";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Categories />
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <Categories />
 
-      <main className="px-3 max-w-screen-xl mx-auto">
-        <Outlet />
+        <main className="px-3 max-w-screen-xl mx-auto">
+          <Outlet />
 
-        <Subscribe />
-      </main>
+          <Subscribe />
+        </main>
 
-      <Footer />
+        <Footer />
+      </QueryClientProvider>
     </div>
   );
 }
