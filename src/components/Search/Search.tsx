@@ -7,7 +7,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import LookupOverlay from "./LookupOverlay";
 import LookupResult from "./LookupResult";
 import { search, ISearchResult } from "../../controllers/search";
-import '../../assets/animations/flashing-dots.css';
+import "../../assets/animations/flashing-dots.css";
 
 export default function Search() {
   const windowSize = useWindowSize();
@@ -32,15 +32,15 @@ export default function Search() {
 
     queryTimeoutRef.current = setTimeout(() => {
       if (query !== "") {
-        performSearch(query);
+        refetch();
       }
     }, 500);
   }
 
-  function performSearch(query: string) {
-    console.log("searching ", query);
-    refetch();
-  }
+  const handleLookupOverlayClose = React.useCallback(
+    () => setIsSearchbarOpen(false),
+    []
+  );
 
   React.useEffect(() => {
     setIsMobileDevice(windowSize.width && windowSize.width < 1024);
@@ -90,31 +90,37 @@ export default function Search() {
             onClick={
               isMobileDevice
                 ? () => setIsSearchbarOpen(false)
-                : () => performSearch(query)
+                : () => refetch()
             }
           >
             {isMobileDevice ? <CloseIcon /> : <SearchIcon />}
           </button>
         </div>
 
-        {query !== "" && isSearchbarOpen && (
-          <LookupOverlay>
-            {isLoading && <div className="flex mt-20 w-full items-center justify-center">
-                <div className="dot-flashing"></div>
-              </div>}
-            {error && <div className='flex mt-20 justify-center'>Error: {error}</div>}
+        <LookupOverlay
+          open={query !== "" && isSearchbarOpen}
+          onClose={handleLookupOverlayClose}
+        >
+          {isLoading && (
+            <div className="flex mt-20 w-full items-center justify-center">
+              <div className="dot-flashing"></div>
+            </div>
+          )}
+          {error && (
+            <div className="flex mt-20 justify-center">Error: {error}</div>
+          )}
 
-            {data?.map((show) => (
-              <LookupResult
-                key={show.id}
-                poster={show.image}
-                title={show.title}
-                year={show.description.replace(/[^0-9]/g, "")}
-                topActors={show.starList?.map((s) => s.name).slice(0, 3)}
-              />
-            ))}
-          </LookupOverlay>
-        )}
+          {data?.map((show) => (
+            <LookupResult
+              key={show.id}
+              id={show.id}
+              poster={show.image}
+              title={show.title}
+              year={show.description.replace(/[^0-9]/g, "")}
+              topActors={show.starList?.map((s) => s.name).slice(0, 3)}
+            />
+          ))}
+        </LookupOverlay>
       </div>
     </div>
   );
