@@ -10,7 +10,7 @@ export default function Subscribe({}: Props) {
     >
       <h2 className="w-full text-xl md:text-2xl">Subscribe to our newsletter</h2>
       <input
-        type="text"
+        type="email"
         placeholder="your email"
         className="p-2 text-black font-semibold md:w-[300px]"
       />
