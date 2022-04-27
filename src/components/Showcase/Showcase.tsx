@@ -50,14 +50,14 @@ export default function Showcase({ shows, title }: Props): ReactElement {
         className="showcase__list flex space-x-2 overflow-x-scroll scroll-smooth"
       >
         {shows.map((show, index) => (
-          <li key={index} className="w-[40vw] shrink-0 max-w-[300px]">
+          <li key={index} className="w-[40vw] shrink-0 max-w-[300px]" title={show.title}>
             <Link to={`/show/${show.id}`}>
               <img
                 src={show.image}
                 alt=""
                 onLoad={(evt) => setIsImagesLoaded(true)}
               />
-              <span className="block text-center">{show.title}</span>
+              <span className="block text-center">{textEllipsis(show.title, 33)}</span>
             </Link>
           </li>
         ))}
@@ -76,4 +76,17 @@ export default function Showcase({ shows, title }: Props): ReactElement {
       </button>
     </div>
   );
+}
+
+function textEllipsis(str : string, maxLength : number, { side = "end", ellipsis = "..." } = {}) {
+  if (str.length > maxLength) {
+    switch (side) {
+      case "start":
+        return ellipsis + str.slice(-(maxLength - ellipsis.length));
+      case "end":
+      default:
+        return str.slice(0, maxLength - ellipsis.length) + ellipsis;
+    }
+  }
+  return str;
 }
