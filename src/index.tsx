@@ -1,15 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Router from "./routing/Router";
-import Routes from "./routing/Routes";
+import routes from "./routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes />
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {routes.map((route, index) => (
+          <Route path={route.path} key={index} element={<route.element/>}>
+            {route?.children?.map((child, index) => {
+              return (
+                <Route
+                  path={child.path}
+                  key={index}
+                  index={child.index}
+                  element={<child.element/>}
+                />
+              );
+            })}
+          </Route>
+        ))}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
