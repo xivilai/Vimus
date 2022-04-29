@@ -25,6 +25,7 @@ export default function Search() {
   function handleQueryChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const query = evt.target.value;
     setQuery(query);
+    setIsSearchbarOpen(true);
 
     if (queryTimeoutRef.current) {
       clearTimeout(queryTimeoutRef.current);
@@ -90,7 +91,10 @@ export default function Search() {
             onClick={
               isMobileDevice
                 ? () => setIsSearchbarOpen(false)
-                : () => refetch()
+                : () => {
+                    setIsSearchbarOpen(true);
+                    refetch();
+                  }
             }
           >
             {isMobileDevice ? <CloseIcon /> : <SearchIcon />}
