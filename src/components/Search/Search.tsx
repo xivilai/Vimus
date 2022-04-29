@@ -60,7 +60,7 @@ export default function Search() {
       </button>
 
       <div
-        className={`searchbar-container flex absolute lg:static ${
+        className={`searchbar-container flex absolute lg:relative lg:z-20 ${
           isSearchbarOpen ? "open z-20" : "closed -z-30"
         } top-0 left-0 w-full h-full`}
       >
