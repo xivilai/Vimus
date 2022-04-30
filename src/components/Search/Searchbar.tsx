@@ -43,6 +43,11 @@ export default function Search() {
     []
   );
 
+  const handleOpenSearchbar = () => {
+    setIsSearchbarOpen(true);
+    searchInputRef?.current?.focus();
+  };
+
   React.useEffect(() => {
     setIsMobileDevice(windowSize.width && windowSize.width < 1024);
   }, [windowSize.width]);
@@ -50,11 +55,10 @@ export default function Search() {
   return (
     <div className="search ml-auto mr-2 lg:ml-auto lg:mr-8 sm:order-2 lg:order-none lg:w-[350px] lg:shrink-0 lg:grow lg:ml-4 sm:ml-2">
       <button
+        aria-haspopup="true"
+        aria-expanded={isSearchbarOpen}
         className="open-searchbar p-4 block lg:hidden"
-        onClick={() => {
-          setIsSearchbarOpen(true);
-          searchInputRef?.current?.focus();
-        }}
+        onClick={handleOpenSearchbar}
       >
         <SearchIcon />
       </button>

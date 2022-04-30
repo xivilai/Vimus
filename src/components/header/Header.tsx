@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
 
 import AppLogo from "../AppLogo";
-import Search from "../Search";
+import { Searchbar } from "../Search";
 import HeaderLinksList from "./HeaderLinksList";
 import BurgerIcon from "../icons/Burger";
 
@@ -33,7 +33,7 @@ export default function Header(): ReactElement {
       <nav className="h-14 max-w-screen-xl mx-auto flex justify-between items-center">
         <AppLogo id="app-header-logo" className="w-28" />
 
-        <Search />
+        <Searchbar />
 
         <HeaderLinksList menuVisible={menuVisible}>
           {links.map((lnk, i) => (
