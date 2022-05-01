@@ -1,7 +1,7 @@
 import React, { ReactElement, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
 
+import ShowcaseItem from "./ShowcaseItem";
 import { IShow } from "../Show";
 
 interface Props {
@@ -34,7 +34,9 @@ export default function Showcase({ shows, title }: Props): ReactElement {
       </h2>
 
       <button
-        className={`absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full ${!isImagesLoaded && "hidden" }`}
+        className={`absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full ${
+          !isImagesLoaded && "hidden"
+        }`}
         onClick={scrollLeft}
       >
         <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -50,21 +52,20 @@ export default function Showcase({ shows, title }: Props): ReactElement {
         className="showcase__list flex space-x-2 overflow-x-scroll scroll-smooth"
       >
         {shows.map((show, index) => (
-          <li key={index} className="w-[40vw] shrink-0 max-w-[300px]" title={show.title}>
-            <Link to={`/show/${show.id}`}>
-              <img
-                src={show.image}
-                alt=""
-                onLoad={(evt) => setIsImagesLoaded(true)}
-              />
-              <span className="block text-center">{textEllipsis(show.title, 33)}</span>
-            </Link>
-          </li>
+          <ShowcaseItem
+            key={index}
+            id={show.id}
+            title={show.title}
+            image={show.image}
+            onLoad={() => setIsImagesLoaded(true)}
+          />
         ))}
       </ul>
 
       <button
-        className={`absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full ${!isImagesLoaded && "hidden" }`}
+        className={`absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full ${
+          !isImagesLoaded && "hidden"
+        }`}
         onClick={scrollRight}
       >
         <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -76,17 +77,4 @@ export default function Showcase({ shows, title }: Props): ReactElement {
       </button>
     </div>
   );
-}
-
-function textEllipsis(str : string, maxLength : number, { side = "end", ellipsis = "..." } = {}) {
-  if (str.length > maxLength) {
-    switch (side) {
-      case "start":
-        return ellipsis + str.slice(-(maxLength - ellipsis.length));
-      case "end":
-      default:
-        return str.slice(0, maxLength - ellipsis.length) + ellipsis;
-    }
-  }
-  return str;
 }
