@@ -33,7 +33,7 @@ export default function useShows(props: useShowsProps) {
       }));
       setShows(shows);
     });
-  }, []);
+  }, [props.genre, props.type]);
 
   return shows;
 }
