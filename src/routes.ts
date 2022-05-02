@@ -4,6 +4,7 @@ import Show from "./components/Show";
 import Genre from "./components/Genre";
 import NewReleases from "./pages/newReleases";
 import TopShows from "./pages/topShows";
+import aboutUs from "./pages/aboutUs";
 
 interface IPath {
   path?: string;
@@ -26,6 +27,7 @@ const routes: Array<IPath> = [
       { path: "new-releases", element: NewReleases },
       { path: "coming-soon", element: () => "coming soon" },
       { path: "top-shows", element: TopShows },
+      { path: "about-us", element: aboutUs },
       { path: "*", element: () => "Not found! Go back" },
     ],
   },
