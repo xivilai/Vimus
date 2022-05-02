@@ -6,7 +6,7 @@ export default function Subscribe({}: Props) {
   return (
     <section
       id="subscribe"
-      className="flex flex-wrap gap-2 md:mb-16 text-center justify-center space-x-3 mb-8"
+      className="flex flex-wrap gap-2 md:my-16 text-center justify-center space-x-3 my-8"
     >
       <h2 className="w-full text-xl md:text-2xl">Subscribe to our newsletter</h2>
       <input
