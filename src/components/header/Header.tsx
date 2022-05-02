@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import AppLogo from "../AppLogo";
 import { Searchbar } from "../Search";
@@ -27,6 +27,11 @@ const links = [
 
 export default function Header(): ReactElement {
   const [menuVisible, setMenuVisible] = useState(false);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    setMenuVisible(false);
+  }, [location]);
 
   return (
     <header className="relative bg-black/75">
