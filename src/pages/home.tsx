@@ -4,14 +4,16 @@ import useShows from "../hooks/useShows";
 
 export default function Home(): ReactElement {
   const actionShows = useShows({ genre: 'action'});
-  // const comedyShows = useShows('comedy');
+  const comedyShows = useShows({ genre: 'comedy'});
+  const horrorShows = useShows({ genre: 'horror'});
+  const documentaryShows = useShows({ genre: 'documentary'});
 
   return (
     <>
       <Showcase title="Action movies" shows={actionShows} />
-      {/* <Showcase title="Comedy movies" keyword="comedy" />
-      <Showcase title="Horror movies" keyword="horror" />
-      <Showcase title="Documentary films" keyword="documentary" /> */}
+      <Showcase title="Comedy movies" shows={comedyShows} />
+      <Showcase title="Horror movies" shows={horrorShows} />
+      <Showcase title="Documentary films" shows={documentaryShows} />
     </>
   );
 }
