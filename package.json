@@ -1,5 +1,6 @@
 {
   "name": "vimus",
+  "homepage": "https://xivilai.github.io/Vimus/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "dotenv-expand": "^5.1.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
@@ -63,6 +65,8 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
@@ -141,11 +145,11 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
-    "eslint-webpack-plugin": "^3.1.1",
     "eslint-plugin-import": "2.25.4",
-    "autoprefixer": "^10.4.0",
+    "eslint-webpack-plugin": "^3.1.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.7"
   }
