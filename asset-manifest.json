@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Vimus/static/css/main.06949df1.css",
-    "main.js": "/Vimus/static/js/main.59707c67.js",
-    "static/js/787.3590bd17.chunk.js": "/Vimus/static/js/787.3590bd17.chunk.js",
-    "index.html": "/Vimus/index.html",
-    "static/media/vimus-logo.svg": "/Vimus/static/media/vimus-logo.73cda36402ca36f501a2df92640a8e08.svg",
-    "main.06949df1.css.map": "/Vimus/static/css/main.06949df1.css.map",
-    "main.59707c67.js.map": "/Vimus/static/js/main.59707c67.js.map",
-    "787.3590bd17.chunk.js.map": "/Vimus/static/js/787.3590bd17.chunk.js.map"
+    "main.css": "/vimus/static/css/main.06949df1.css",
+    "main.js": "/vimus/static/js/main.bc2ee682.js",
+    "static/js/787.3590bd17.chunk.js": "/vimus/static/js/787.3590bd17.chunk.js",
+    "index.html": "/vimus/index.html",
+    "static/media/vimus-logo.svg": "/vimus/static/media/vimus-logo.73cda36402ca36f501a2df92640a8e08.svg",
+    "main.06949df1.css.map": "/vimus/static/css/main.06949df1.css.map",
+    "main.bc2ee682.js.map": "/vimus/static/js/main.bc2ee682.js.map",
+    "787.3590bd17.chunk.js.map": "/vimus/static/js/787.3590bd17.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06949df1.css",
-    "static/js/main.59707c67.js"
+    "static/js/main.bc2ee682.js"
   ]
 }
