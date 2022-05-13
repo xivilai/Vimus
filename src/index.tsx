@@ -7,7 +7,7 @@ import routes from "./routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/vimus">
       <Routes>
         {routes.map((route, index) => (
           <Route path={route.path} key={index} element={<route.element/>}>
