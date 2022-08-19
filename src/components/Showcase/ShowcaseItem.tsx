@@ -17,9 +17,9 @@ export default function ShowcaseItem({
   onLoad,
 }: IShowcaseItem) {
   return (
-    <li className="w-[40vw] shrink-0 max-w-[300px]" title={title}>
+    <li className="shrink-0 max-w-[300px]" title={title}>
       <Link to={`/show/${id}`}>
-        <img src={getResizedImageUrl(image)} alt="" onLoad={onLoad} />
+        <img src={getResizedImageUrl(image)} alt={title} onLoad={onLoad} className='h-[65vw] md:h-[35vw] w-full max-h-[445px]' />
         <span className="block text-center">{textEllipsis(title, 33)}</span>
       </Link>
     </li>
