@@ -1,4 +1,5 @@
 import React from "react";
+import { getResizedImageUrl } from "../../utils/image";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -19,7 +20,7 @@ export default function LookupResult({
   return (
     <li className="p-4 hover:bg-gray-700 transition-colors relative after:block after:border-t after:w-full after:absolute after:bottom-0 after:left-0 after:border-gray-400 hover:cursor-pointer">
       <Link to={`/show/${id}`} className='flex gap-2'>
-        <img src={poster} alt={title} className="w-[50px]" />
+        <img src={getResizedImageUrl(poster, '70')} alt={title} className="w-[50px]" />
         <div>
           <div className="font-bold">{title}</div>
           <div className="text-[#a3a3a3]">{year}</div>
