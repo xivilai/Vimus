@@ -1,7 +1,7 @@
 import React, { ReactElement, useRef, useState } from "react";
 import "./style.css";
 
-import ShowcaseItem from "./ShowcaseItem";
+import ShowcaseItem, { ShowcaseItemPlaceholder } from "./ShowcaseItem";
 import { IShow } from "../Show";
 
 interface Props {
@@ -11,8 +11,6 @@ interface Props {
 
 export default function Showcase({ shows, title }: Props): ReactElement {
   const showcaseListRef = useRef<HTMLUListElement>(null);
-  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
-
   const scrollOffset = 900;
 
   const scrollRight = () => {
@@ -27,6 +25,9 @@ export default function Showcase({ shows, title }: Props): ReactElement {
     }
   };
 
+  // Show skeletons if no shows available
+  const showcaseItemPlaceholders = Array(6).fill('x').map((el, i) => <ShowcaseItemPlaceholder key={i} />);
+
   return (
     <div className="showcase relative mb-8">
       <h2 className="showcase__title font-semibold text-lg lg:text-xl mb-2 capitalize">
@@ -35,7 +36,7 @@ export default function Showcase({ shows, title }: Props): ReactElement {
 
       <button
         className={`absolute top-0 left-0 text-[#ff0000] w-[30px] flex items-center h-full ${
-          !isImagesLoaded && "hidden"
+          shows.length === 0 && "hidden"
         }`}
         onClick={scrollLeft}
       >
@@ -51,20 +52,21 @@ export default function Showcase({ shows, title }: Props): ReactElement {
         ref={showcaseListRef}
         className="showcase__list flex space-x-2 overflow-x-scroll scroll-smooth"
       >
+        {shows.length === 0 && showcaseItemPlaceholders}
+
         {shows.map((show, index) => (
           <ShowcaseItem
             key={index}
             id={show.id}
             title={show.title}
             image={show.image}
-            onLoad={() => setIsImagesLoaded(true)}
           />
         ))}
       </ul>
 
       <button
         className={`absolute top-0 right-0 text-[#ff0000] w-[30px] rotate-180 flex items-center h-full ${
-          !isImagesLoaded && "hidden"
+          shows.length === 0 && "hidden"
         }`}
         onClick={scrollRight}
       >

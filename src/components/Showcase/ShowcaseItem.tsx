@@ -7,21 +7,41 @@ interface IShowcaseItem {
   id: string;
   title: string;
   image: string;
-  onLoad: ReactEventHandler<HTMLImageElement>;
 }
 
-export default function ShowcaseItem({
-  id,
-  title,
-  image,
-  onLoad,
-}: IShowcaseItem) {
+export default function ShowcaseItem({ id, title, image }: IShowcaseItem) {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+  const isLoading = !imageLoaded;
+
   return (
-    <li className="shrink-0 max-w-[300px]" title={title}>
-      <Link to={`/show/${id}`}>
-        <img src={getResizedImageUrl(image)} alt={title} onLoad={onLoad} className='h-[65vw] md:h-[35vw] w-full max-h-[445px]' />
-        <span className="block text-center">{textEllipsis(title, 33)}</span>
-      </Link>
-    </li>
+    <>
+      {/* Return skeleton while the image is loading */}
+      {isLoading && <ShowcaseItemPlaceholder />}
+      <li className="shrink-0 max-w-[300px]" title={title} hidden={imageLoaded ? false : true}>
+        <Link to={`/show/${id}`}>
+          <img
+            onLoad={() => {
+              console.log("loaded image");
+              setImageLoaded(true);
+            }}
+            src={getResizedImageUrl(image)}
+            alt={title}
+            className="h-[65vw] md:h-[35vw] w-full max-h-[445px]"
+          />
+          <span className="block text-center">{textEllipsis(title, 33)}</span>
+        </Link>
+      </li>
+    </>
   );
 }
+
+export const ShowcaseItemPlaceholder = () => {
+  return (
+    <li className="shadow shrink-0 max-w-[300px] w-[48vw]">
+      <div className="animate-pulse">
+        <div className="bg-gray-700 rounded rounded-sm h-[65vw] md:h-[35vw] w-full max-h-[445px]"></div>
+        <div className="h-4 bg-gray-700 rounded rounded-sm mt-2"></div>
+      </div>
+    </li>
+  );
+};
