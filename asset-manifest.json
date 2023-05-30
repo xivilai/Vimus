@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/vimus/static/css/main.edd09918.css",
-    "main.js": "/vimus/static/js/main.5efc86c5.js",
+    "main.css": "/vimus/static/css/main.0d32d948.css",
+    "main.js": "/vimus/static/js/main.b44dec83.js",
     "static/js/787.3590bd17.chunk.js": "/vimus/static/js/787.3590bd17.chunk.js",
     "index.html": "/vimus/index.html",
     "static/media/vimus-logo.svg": "/vimus/static/media/vimus-logo.73cda36402ca36f501a2df92640a8e08.svg",
-    "main.edd09918.css.map": "/vimus/static/css/main.edd09918.css.map",
-    "main.5efc86c5.js.map": "/vimus/static/js/main.5efc86c5.js.map",
+    "main.0d32d948.css.map": "/vimus/static/css/main.0d32d948.css.map",
+    "main.b44dec83.js.map": "/vimus/static/js/main.b44dec83.js.map",
     "787.3590bd17.chunk.js.map": "/vimus/static/js/787.3590bd17.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edd09918.css",
-    "static/js/main.5efc86c5.js"
+    "static/css/main.0d32d948.css",
+    "static/js/main.b44dec83.js"
   ]
 }
